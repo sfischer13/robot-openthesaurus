@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">OpenThesaurus (online)</string>
+    <string name="error">Verbindungsfehler!</string>
+    <string name="help">Hilfe</string>
+    <string name="hint">Suchwort</string>
+    <string name="info">Info</string>
+    <string name="input_too_short">Eingabe zu kurz!</string>
+    <string name="no_network">Kein Netzwerk!</string>
+    <string name="no_result">Keine Treffer!</string>
+    <string name="search">Suchen</string>
+    <string name="searching">Suche …</string>
+</resources>
