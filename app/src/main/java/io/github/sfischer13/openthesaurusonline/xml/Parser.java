@@ -12,10 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
-import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +29,7 @@ import javax.xml.xpath.XPathFactory;
 
 import io.github.sfischer13.openthesaurusonline.model.Synset;
 import io.github.sfischer13.openthesaurusonline.model.Term;
+import io.github.sfischer13.openthesaurusonline.util.Net;
 
 public class Parser {
     private static final int CONNECT_TIMEOUT = 3000;
@@ -49,11 +48,14 @@ public class Parser {
     }
 
     private static URL getQueryUrl(String query) {
-        try {
-            return new URL(QUERY_URL + URLEncoder.encode(query, "UTF-8"));
-        } catch (MalformedURLException mue) {
+        String encoded = Net.encodeUrl(query);
+        if (encoded == null) {
             return null;
-        } catch (UnsupportedEncodingException uee) {
+        }
+
+        try {
+            return new URL(QUERY_URL + encoded);
+        } catch (MalformedURLException mue) {
             return null;
         }
     }
