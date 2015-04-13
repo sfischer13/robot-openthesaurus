@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">OpenThesaurus (online)</string>
     <string name="error">Verbindungsfehler!</string>
-    <string name="footer">OpenThesaurus.de ist ein freies deutsches Wörterbuch für Synonyme, bei dem jeder mitmachen kann.</string>
+    <string name="footer">OpenThesaurus ist ein freies deutsches Wörterbuch für Synonyme, bei dem jeder mitmachen kann.</string>
     <string name="help">Hilfe</string>
     <string name="hint">Suchwort</string>
     <string name="info">Info</string>
