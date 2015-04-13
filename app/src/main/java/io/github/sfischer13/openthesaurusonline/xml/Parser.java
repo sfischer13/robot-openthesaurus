@@ -34,7 +34,7 @@ import io.github.sfischer13.openthesaurusonline.model.Term;
 
 public class Parser {
     private static final int CONNECT_TIMEOUT = 3000;
-    private static final int READ_TIMEOUT = 3000;
+    private static final int READ_TIMEOUT = 6000;
     private static final String QUERY_URL = "https://www.openthesaurus.de/synonyme/search?format=text/xml&mode=all&q=";
     private static final String SUPPORTED_API = "0.1.3";
 
