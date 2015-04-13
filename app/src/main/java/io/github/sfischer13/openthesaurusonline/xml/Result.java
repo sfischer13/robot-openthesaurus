@@ -6,11 +6,22 @@ import io.github.sfischer13.openthesaurusonline.model.Synset;
 
 public class Result {
     private final List<Synset> synsets;
+    private final List<SuggestionCollection> suggestions;
 
-    public Result(List<Synset> synsets) {
+    public Result(List<Synset> synsets, List<SuggestionCollection> suggestions) {
         this.synsets = synsets;
+        this.suggestions = suggestions;
     }
 
+    public List<Synset> getSynsets() {
+        return synsets;
+    }
+
+    public List<SuggestionCollection> getSuggestions() {
+        return suggestions;
+    }
+
+    // TODO: new field
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -21,9 +32,5 @@ public class Result {
             sep = "\n\n";
         }
         return sb.toString();
-    }
-
-    public List<Synset> getSynsets() {
-        return synsets;
     }
 }

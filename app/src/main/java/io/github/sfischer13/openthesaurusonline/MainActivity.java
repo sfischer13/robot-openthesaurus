@@ -14,17 +14,19 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import io.github.sfischer13.openthesaurusonline.util.Net;
 import io.github.sfischer13.openthesaurusonline.util.UI;
 import io.github.sfischer13.openthesaurusonline.xml.Result;
+import io.github.sfischer13.openthesaurusonline.xml.ResultExpandableListAdapter;
 
 public class MainActivity extends Activity implements TaskListener {
     private EditText input;
-    private TextView output;
     private ProgressDialog progress;
     private Result result;
+    private ExpandableListView list;
 
     // TODO: deprecated
     @Override
@@ -38,11 +40,22 @@ public class MainActivity extends Activity implements TaskListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // TODO: deprecated
+        restoreState();
+
         setContentView(R.layout.activity_main);
         initUIElement();
 
-        // TODO: deprecated
-        restoreState();
+        list = (ExpandableListView) findViewById(R.id.list);
+        list.setAdapter(new ResultExpandableListAdapter(this, result));
+        list.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView elv, View view, int i, int j, long l) {
+                TextView textView = (TextView) view.findViewById(R.id.text);
+                performLinkSearch(textView.getText().toString());
+                return true;
+            }
+        });
     }
 
     private void restoreState() {
@@ -51,7 +64,6 @@ public class MainActivity extends Activity implements TaskListener {
         } else {
             result = null;
         }
-        setOutput();
     }
 
     private void initUIElement() {
@@ -60,14 +72,12 @@ public class MainActivity extends Activity implements TaskListener {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    performSearch();
+                    performInputSearch();
                     return true;
                 }
                 return false;
             }
         });
-
-        output = (TextView) findViewById(R.id.output);
     }
 
     @Override
@@ -89,31 +99,34 @@ public class MainActivity extends Activity implements TaskListener {
     }
 
     public void buttonClick(View view) {
-        performSearch();
+        performInputSearch();
     }
 
-    private void performSearch() {
-        if (getInput().length() > 0) {
-            if (Net.isConnected(this)) {
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
+    private void performInputSearch() {
+        performSearch(getInput());
+    }
 
-                new QueryTask(this).execute(getInput());
+    private void performLinkSearch(String text) {
+        input.setText(text);
+        performInputSearch();
+    }
+
+
+    private void hideInputKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
+    }
+
+    private void performSearch(String text) {
+        if (text.length() > 0) {
+            if (Net.isConnected(this)) {
+                hideInputKeyboard();
+                new QueryTask(this).execute(text);
             } else {
                 UI.shortCenterToast(getApplicationContext(), R.string.no_network);
             }
         } else {
             UI.shortCenterToast(getApplicationContext(), R.string.input_too_short);
-        }
-    }
-
-    private void setOutput() {
-        if (result == null) {
-            output.setText("");
-        } else if (result.getSynsets().size() == 0) {
-            output.setText("");
-        } else {
-            output.setText(result.toString());
         }
     }
 
@@ -131,15 +144,26 @@ public class MainActivity extends Activity implements TaskListener {
     @Override
     public void onTaskFinished(Result result) {
         this.result = result;
-        setOutput();
+        list.setAdapter(new ResultExpandableListAdapter(this, result));
 
+        // group expansion
+        if (result != null) {
+            if (result.getSynsets().size() != 0 && result.getSuggestions().size() != 0) {
+                list.expandGroup(1);
+            } else if (result.getSynsets().size() != 0 || result.getSuggestions().size() != 0) {
+                list.expandGroup(0);
+            }
+        }
+
+        // progress dialog
         if (progress != null && progress.isShowing()) {
             progress.dismiss();
         }
 
+        // toast
         if (result == null) {
             UI.shortCenterToast(getApplicationContext(), R.string.error);
-        } else if (result.getSynsets().size() == 0) {
+        } else if (result.getSynsets().size() == 0 && result.getSuggestions().size() == 0) {
             UI.shortCenterToast(getApplicationContext(), R.string.no_result);
         } else {
             // nothing yet

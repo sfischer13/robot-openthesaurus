@@ -1,7 +1,9 @@
 package io.github.sfischer13.openthesaurusonline.model;
 
 
-public class Term {
+import java.io.Serializable;
+
+public class Term implements Serializable {
     private String term = null;
 
     public Term(String term) {

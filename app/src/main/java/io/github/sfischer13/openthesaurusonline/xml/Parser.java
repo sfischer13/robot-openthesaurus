@@ -153,11 +153,17 @@ public class Parser {
             return null;
         }
 
-        List<Synset> tldSynsets = parseTopLevelSynsets(doc);
-        if (tldSynsets == null) {
+        List<Synset> matches = parseMatches(doc);
+        if (matches == null) {
             return null;
         }
-        return new Result(tldSynsets);
+
+        List<SuggestionCollection> suggestions = parseSuggestions(doc);
+        if (suggestions == null) {
+            return null;
+        }
+
+        return new Result(matches, suggestions);
     }
 
     private static boolean isApiSupported(Document doc) {
@@ -172,7 +178,7 @@ public class Parser {
         return result;
     }
 
-    private static List<Synset> parseTopLevelSynsets(Document doc) {
+    private static List<Synset> parseMatches(Document doc) {
         List<Synset> result;
         XPath xpath = XPathFactory.newInstance().newXPath();
         try {
@@ -196,5 +202,40 @@ public class Parser {
             result = null;
         }
         return result;
+    }
+
+    private static List<SuggestionCollection> parseSuggestions(Document doc) {
+        List<SuggestionCollection> suggestions = new ArrayList<>();
+        String[] paths = {"//similarterms/term", "//substringterms/term", "//startswithterms/term"};
+        for (String path : paths) {
+            SuggestionCollection collection = parseSuggestionCollection(doc, path);
+            if (collection == null) {
+                return null;
+            } else if (collection.getTerms().size() != 0) {
+                suggestions.add(collection);
+            }
+        }
+        return suggestions;
+    }
+
+    private static SuggestionCollection parseSuggestionCollection(Document doc, String path) {
+        SuggestionCollection collection;
+        XPath xpath = XPathFactory.newInstance().newXPath();
+        try {
+            XPathExpression expression = xpath.compile(path);
+            NodeList nodes = (NodeList) expression.evaluate(doc, XPathConstants.NODESET);
+            collection = new SuggestionCollection(path);
+            for (int i = 0; i < nodes.getLength(); i++) {
+                Node child = nodes.item(i);
+                String name = child.getNodeName();
+                if (name.equals("term")) {
+                    String attribute = child.getAttributes().getNamedItem("term").getNodeValue();
+                    collection.add(new Term(attribute));
+                }
+            }
+        } catch (XPathExpressionException xpe) {
+            collection = null;
+        }
+        return collection;
     }
 }
