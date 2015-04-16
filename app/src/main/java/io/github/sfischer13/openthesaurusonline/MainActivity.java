@@ -2,11 +2,15 @@ package io.github.sfischer13.openthesaurusonline;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,6 +60,40 @@ public class MainActivity extends Activity implements TaskListener {
                 return true;
             }
         });
+        registerForContextMenu(list);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        ExpandableListView.ExpandableListContextMenuInfo info = (ExpandableListView.ExpandableListContextMenuInfo) menuInfo;
+        int type = ExpandableListView.getPackedPositionType(info.packedPosition);
+        if (type == ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
+            menu.setHeaderTitle(R.string.word);
+            menu.add(Menu.NONE, 0, Menu.NONE, getString(R.string.context_copy));
+            menu.add(Menu.NONE, 1, Menu.NONE, getString(R.string.context_web));
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        ExpandableListView.ExpandableListContextMenuInfo info = (ExpandableListView.ExpandableListContextMenuInfo) item.getMenuInfo();
+        int groupId = ExpandableListView.getPackedPositionGroup(info.packedPosition);
+        int childId = ExpandableListView.getPackedPositionChild(info.packedPosition);
+        ResultExpandableListAdapter.TermChild child = (ResultExpandableListAdapter.TermChild) list.getExpandableListAdapter().getChild(groupId, childId);
+        String text = child.getTerm().toString();
+
+        switch (item.getItemId()) {
+            case 0:
+                setClipboard(text);
+                return true;
+            case 1:
+                // TODO: constant + function
+                openUrl("https://www.openthesaurus.de/synonyme/" + Net.encodeUrl(text));
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     private void restoreState() {
@@ -111,10 +149,19 @@ public class MainActivity extends Activity implements TaskListener {
         performInputSearch();
     }
 
-
     private void hideInputKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
+    }
+
+    private void openUrl(String url) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+    }
+
+    private void setClipboard(String text) {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText(getString(R.string.word), text);
+        clipboard.setPrimaryClip(clip);
     }
 
     private void performSearch(String text) {

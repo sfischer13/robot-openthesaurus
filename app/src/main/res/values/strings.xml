@@ -15,4 +15,7 @@
     <string name="suggestion_similar">Ähnliche Wörter</string>
     <string name="suggestion_substring">Teilworttreffer</string>
     <string name="suggestion_startswith">Gleicher Wortanfang</string>
+    <string name="word">Wort</string>
+    <string name="context_copy">Kopieren</string>
+    <string name="context_web">www.openthesaurus.de</string>
 </resources>

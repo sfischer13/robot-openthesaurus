@@ -112,7 +112,7 @@ public class ResultExpandableListAdapter extends BaseExpandableListAdapter {
         }
     }
 
-    class TermChild implements Child {
+    public class TermChild implements Child {
         private final Term term;
 
         public TermChild(Term term) {

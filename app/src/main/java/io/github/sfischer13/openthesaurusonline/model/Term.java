@@ -10,6 +10,8 @@ public class Term implements Serializable {
         this.term = term;
     }
 
+    // TODO; getter
+
     @Override
     public String toString() {
         return term;
