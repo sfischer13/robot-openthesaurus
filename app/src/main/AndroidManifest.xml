@@ -28,19 +28,11 @@
             android:name=".InfoActivity"
             android:label="@string/info"
             android:parentActivityName=".MainActivity">
-            <!-- parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="io.github.sfischer13.openthesaurusonline.MainActivity" />
         </activity>
         <activity
             android:name=".HelpActivity"
             android:label="@string/help"
             android:parentActivityName=".MainActivity">
-            <!-- parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="io.github.sfischer13.openthesaurusonline.MainActivity" />
         </activity>
     </application>
 
