@@ -158,7 +158,11 @@ public class MainActivity extends Activity implements TaskListener {
         return input.getText().toString().trim();
     }
 
-    public void buttonClick(View view) {
+    public void buttonClear(View view) {
+        input.setText("");
+    }
+
+    public void buttonSearch(View view) {
         performInputSearch();
     }
 

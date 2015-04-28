@@ -1,6 +1,7 @@
 <resources>
     <string name="app_contact">sfischer13@ymail.com</string>
     <string name="app_name">OpenThesaurus @ Android</string>
+    <string name="clear">Löschen</string>
     <string name="context_copy">Kopieren</string>
     <string name="context_web">www.openthesaurus.de</string>
     <string name="error">Verbindungsfehler!</string>

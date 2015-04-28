@@ -30,14 +30,21 @@
                 android:imeOptions="actionSearch"
                 android:inputType="text" />
 
-            <Button
-                android:background="@color/ot_blue"
-                android:textColor="@color/ot_white"
-                android:id="@+id/button"
+            <ImageButton
+                android:onClick="buttonClear"
+                android:src="@drawable/ic_action_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="buttonClick"
-                android:text="@string/search" />
+                android:id="@+id/clearButton"
+                android:contentDescription="@string/clear"/>
+
+            <ImageButton
+                android:onClick="buttonSearch"
+                android:src="@drawable/ic_action_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/searchButton"
+                android:contentDescription="@string/search"/>
         </LinearLayout>
 
         <ExpandableListView
