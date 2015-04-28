@@ -166,7 +166,7 @@ public class ResultExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int i, boolean isExpanded, View convertView, ViewGroup parent) {
-        View view = inflater.inflate(R.layout.group, null);
+        View view = inflater.inflate(R.layout.group, parent, false);
         String text = ((Group) getGroup(i)).getHeader();
         ((TextView) view.findViewById(R.id.text)).setText(text);
         return view;
@@ -177,11 +177,11 @@ public class ResultExpandableListAdapter extends BaseExpandableListAdapter {
         Child child = (Child) getChild(i, j);
         View view;
         if (child instanceof HeaderChild) {
-            view = inflater.inflate(R.layout.header, null);
+            view = inflater.inflate(R.layout.header, parent, false);
             String text = ((HeaderChild) child).getHeader();
             ((TextView) view.findViewById(R.id.text)).setText(text);
         } else if (child instanceof TermChild) {
-            view = inflater.inflate(R.layout.child, null);
+            view = inflater.inflate(R.layout.child, parent, false);
             String text = ((TermChild) child).getTerm().toString();
             ((TextView) view.findViewById(R.id.text)).setText(text);
         } else {
