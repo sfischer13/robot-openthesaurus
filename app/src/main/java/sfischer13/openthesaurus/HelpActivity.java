@@ -14,14 +14,14 @@
    limitations under the License.
 */
 
-package io.github.sfischer13.openthesaurusonline;
+package sfischer13.openthesaurus;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 
-import io.github.sfischer13.openthesaurusonline.util.IO;
+import sfischer13.openthesaurus.util.IO;
 
 
 public class HelpActivity extends Activity {

@@ -6,7 +6,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="io.github.sfischer13.openthesaurusonline.HelpActivity">
+    tools:context="sfischer13.openthesaurus.HelpActivity">
 
     <WebView
         android:id="@+id/help_html"

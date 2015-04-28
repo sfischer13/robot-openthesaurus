@@ -1,10 +1,10 @@
-package io.github.sfischer13.openthesaurusonline.xml;
+package sfischer13.openthesaurus.xml;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.sfischer13.openthesaurusonline.model.Term;
+import sfischer13.openthesaurus.model.Term;
 
 public class SuggestionCollection {
     private final String path;

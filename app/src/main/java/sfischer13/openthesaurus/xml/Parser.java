@@ -1,4 +1,4 @@
-package io.github.sfischer13.openthesaurusonline.xml;
+package sfischer13.openthesaurus.xml;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -27,9 +27,9 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import io.github.sfischer13.openthesaurusonline.model.Synset;
-import io.github.sfischer13.openthesaurusonline.model.Term;
-import io.github.sfischer13.openthesaurusonline.util.Net;
+import sfischer13.openthesaurus.model.Synset;
+import sfischer13.openthesaurus.model.Term;
+import sfischer13.openthesaurus.util.Net;
 
 public class Parser {
     private static final int CONNECT_TIMEOUT = 3000;

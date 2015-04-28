@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-package io.github.sfischer13.openthesaurusonline.model;
+package sfischer13.openthesaurus.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

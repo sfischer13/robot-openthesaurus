@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-package io.github.sfischer13.openthesaurusonline.util;
+package sfischer13.openthesaurus.util;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

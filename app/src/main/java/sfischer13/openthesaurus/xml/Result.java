@@ -1,8 +1,8 @@
-package io.github.sfischer13.openthesaurusonline.xml;
+package sfischer13.openthesaurus.xml;
 
 import java.util.List;
 
-import io.github.sfischer13.openthesaurusonline.model.Synset;
+import sfischer13.openthesaurus.model.Synset;
 
 public class Result {
     private final List<Synset> synsets;

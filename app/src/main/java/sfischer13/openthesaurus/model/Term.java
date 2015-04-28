@@ -14,16 +14,21 @@
    limitations under the License.
 */
 
-package io.github.sfischer13.openthesaurusonline.util;
+package sfischer13.openthesaurus.model;
 
-import android.content.Context;
-import android.view.Gravity;
-import android.widget.Toast;
+import java.io.Serializable;
 
-public class UI {
-    public static void shortCenterToast(Context context, int stringId) {
-        Toast toast = Toast.makeText(context, stringId, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-        toast.show();
+public class Term implements Serializable {
+    private String term = null;
+
+    public Term(String term) {
+        this.term = term;
+    }
+
+    // TODO; getter
+
+    @Override
+    public String toString() {
+        return term;
     }
 }

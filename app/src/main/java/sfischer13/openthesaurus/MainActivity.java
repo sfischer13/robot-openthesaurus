@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-package io.github.sfischer13.openthesaurusonline;
+package sfischer13.openthesaurus;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -37,10 +37,10 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-import io.github.sfischer13.openthesaurusonline.util.Net;
-import io.github.sfischer13.openthesaurusonline.util.UI;
-import io.github.sfischer13.openthesaurusonline.xml.Result;
-import io.github.sfischer13.openthesaurusonline.xml.ResultExpandableListAdapter;
+import sfischer13.openthesaurus.util.Net;
+import sfischer13.openthesaurus.util.UI;
+import sfischer13.openthesaurus.xml.Result;
+import sfischer13.openthesaurus.xml.ResultExpandableListAdapter;
 
 public class MainActivity extends Activity implements TaskListener {
     private EditText input;

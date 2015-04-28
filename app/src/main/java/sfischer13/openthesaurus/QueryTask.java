@@ -14,12 +14,12 @@
    limitations under the License.
 */
 
-package io.github.sfischer13.openthesaurusonline;
+package sfischer13.openthesaurus;
 
 import android.os.AsyncTask;
 
-import io.github.sfischer13.openthesaurusonline.xml.Parser;
-import io.github.sfischer13.openthesaurusonline.xml.Result;
+import sfischer13.openthesaurus.xml.Parser;
+import sfischer13.openthesaurus.xml.Result;
 
 class QueryTask extends AsyncTask<String, Void, Result> {
     private final TaskListener listener;

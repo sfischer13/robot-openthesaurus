@@ -1,4 +1,4 @@
-package io.github.sfischer13.openthesaurusonline.xml;
+package sfischer13.openthesaurus.xml;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,9 +10,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.sfischer13.openthesaurusonline.R;
-import io.github.sfischer13.openthesaurusonline.model.Synset;
-import io.github.sfischer13.openthesaurusonline.model.Term;
+import sfischer13.openthesaurus.R;
+import sfischer13.openthesaurus.model.Synset;
+import sfischer13.openthesaurus.model.Term;
 
 public class ResultExpandableListAdapter extends BaseExpandableListAdapter {
     private final Context context;

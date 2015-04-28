@@ -14,9 +14,9 @@
    limitations under the License.
 */
 
-package io.github.sfischer13.openthesaurusonline;
+package sfischer13.openthesaurus;
 
-import io.github.sfischer13.openthesaurusonline.xml.Result;
+import sfischer13.openthesaurus.xml.Result;
 
 public interface TaskListener {
     void onTaskStarted();
