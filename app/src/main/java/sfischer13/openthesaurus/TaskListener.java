@@ -18,7 +18,7 @@ package sfischer13.openthesaurus;
 
 import sfischer13.openthesaurus.xml.Result;
 
-public interface TaskListener {
+interface TaskListener {
     void onTaskStarted();
 
     void onTaskFinished(Result result);

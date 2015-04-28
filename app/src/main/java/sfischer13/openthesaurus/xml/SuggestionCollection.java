@@ -6,7 +6,7 @@ import java.util.List;
 
 import sfischer13.openthesaurus.model.Term;
 
-public class SuggestionCollection {
+class SuggestionCollection {
     private final String path;
     private final List<Term> terms;
 
