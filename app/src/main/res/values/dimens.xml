@@ -1,7 +1,9 @@
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="group_left_padding">36dp</dimen>
+    <dimen name="child_horizontal_margin">8dp</dimen>
+    <dimen name="child_vertical_margin">4dp</dimen>
+    <dimen name="group_left_padding">32dp</dimen>
     <dimen name="group_horizontal_margin">8dp</dimen>
     <dimen name="group_vertical_margin">8dp</dimen>
 </resources>

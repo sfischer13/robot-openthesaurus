@@ -7,8 +7,8 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ot_blue"
-        android:textColor="@color/ot_white"
+        android:background="@color/ot_gray"
+        android:textColor="@color/ot_black"
         android:textStyle="italic"
         android:gravity="center" />
 </RelativeLayout>
