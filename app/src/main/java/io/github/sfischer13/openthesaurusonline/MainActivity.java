@@ -140,6 +140,12 @@ public class MainActivity extends Activity implements TaskListener {
         return super.onCreateOptionsMenu(menu);
     }
 
+    public void actionFeedback(MenuItem item) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", getString(R.string.app_contact), null));
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_app));
+        startActivity(Intent.createChooser(intent, getString(R.string.feedback)));
+    }
+
     public void actionHelp(MenuItem item) {
         startActivity(new Intent(this, HelpActivity.class));
     }

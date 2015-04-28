@@ -1,8 +1,11 @@
 <resources>
+    <string name="app_contact">sfischer13@ymail.com</string>
     <string name="app_name">OpenThesaurus @ Android</string>
     <string name="context_copy">Kopieren</string>
     <string name="context_web">www.openthesaurus.de</string>
     <string name="error">Verbindungsfehler!</string>
+    <string name="feedback">Feedback</string>
+    <string name="feedback_app">Feedback zu OpenThesaurus</string>
     <string name="footer">OpenThesaurus ist ein freies deutsches Wörterbuch für Synonyme, bei dem jeder mitmachen kann.</string>
     <string name="help">Hilfe</string>
     <string name="hint">Suchwort</string>
