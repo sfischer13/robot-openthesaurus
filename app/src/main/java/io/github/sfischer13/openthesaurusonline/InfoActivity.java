@@ -41,6 +41,7 @@ public class InfoActivity extends Activity {
         });
         String content = IO.readRawTextFile(this, R.raw.info);
         if (content != null) {
+            content = content.replace("{{app_name}}", getString(R.string.app_name));
             content = content.replace("{{version}}", Info.versionString(this));
             html.loadDataWithBaseURL(null, content, "text/html", "utf-8", null);
         }
