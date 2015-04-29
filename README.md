@@ -1,4 +1,4 @@
-# OpenThesaurus Synonymwörterbuch
+# OpenThesaurus Synonymsuche
 
 This app lets you look up synonyms of German words in [OpenThesaurus].
 
