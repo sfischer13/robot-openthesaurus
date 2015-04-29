@@ -25,7 +25,9 @@ public class Term implements Serializable {
         this.term = term;
     }
 
-    // TODO; getter
+    public String getTerm() {
+        return term;
+    }
 
     @Override
     public String toString() {

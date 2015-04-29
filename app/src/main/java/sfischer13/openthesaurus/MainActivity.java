@@ -97,15 +97,14 @@ public class MainActivity extends Activity implements TaskListener {
         int groupId = ExpandableListView.getPackedPositionGroup(info.packedPosition);
         int childId = ExpandableListView.getPackedPositionChild(info.packedPosition);
         ResultExpandableListAdapter.TermChild child = (ResultExpandableListAdapter.TermChild) list.getExpandableListAdapter().getChild(groupId, childId);
-        String text = child.getTerm().toString();
+        String text = child.getTerm().getTerm();
 
         switch (item.getItemId()) {
             case 0:
                 setClipboard(text);
                 return true;
             case 1:
-                // TODO: constant + function
-                openUrl("https://www.openthesaurus.de/synonyme/" + Net.encodeUrl(text));
+                openUrl(getSynonymUrl(text));
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -178,6 +177,10 @@ public class MainActivity extends Activity implements TaskListener {
     private void hideInputKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
+    }
+
+    private String getSynonymUrl(String text) {
+        return "https://www.openthesaurus.de/synonyme/" + Net.encodeUrl(text);
     }
 
     private void openUrl(String url) {

@@ -31,20 +31,20 @@ public class ResultExpandableListAdapter extends BaseExpandableListAdapter {
                 Group group = new Group(R.string.suggestions);
                 for (SuggestionCollection collection : result.getSuggestions()) {
                     String title;
-                    // TODO: double usage of xpath strings
-                    switch (collection.getPath()) {
-                        case "//similarterms/term":
+                    switch (collection.getType()) {
+                        case SIMILAR:
                             title = context.getString(R.string.suggestion_similar);
                             break;
-                        case "//substringterms/term":
+                        case SUB:
                             title = context.getString(R.string.suggestion_substring);
                             break;
-                        case "//startswithterms/term":
+                        case START:
                             title = context.getString(R.string.suggestion_startswith);
                             break;
                         default:
                             title = "";
                     }
+
                     group.add(new HeaderChild(title));
                     for (Term term : collection.getTerms()) {
                         group.add(new TermChild(term));
@@ -182,7 +182,7 @@ public class ResultExpandableListAdapter extends BaseExpandableListAdapter {
             ((TextView) view.findViewById(R.id.text)).setText(text);
         } else if (child instanceof TermChild) {
             view = inflater.inflate(R.layout.child, parent, false);
-            String text = ((TermChild) child).getTerm().toString();
+            String text = ((TermChild) child).getTerm().getTerm();
             ((TextView) view.findViewById(R.id.text)).setText(text);
         } else {
             view = null;

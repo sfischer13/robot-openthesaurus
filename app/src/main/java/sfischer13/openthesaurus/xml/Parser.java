@@ -208,9 +208,8 @@ public class Parser {
 
     private static List<SuggestionCollection> parseSuggestions(Document doc) {
         List<SuggestionCollection> suggestions = new ArrayList<>();
-        String[] paths = {"//similarterms/term", "//substringterms/term", "//startswithterms/term"};
-        for (String path : paths) {
-            SuggestionCollection collection = parseSuggestionCollection(doc, path);
+        for (SuggestionCollection.Type type : SuggestionCollection.Type.values()) {
+            SuggestionCollection collection = parseSuggestionCollection(doc, type);
             if (collection == null) {
                 return null;
             } else if (collection.getTerms().size() != 0) {
@@ -220,13 +219,13 @@ public class Parser {
         return suggestions;
     }
 
-    private static SuggestionCollection parseSuggestionCollection(Document doc, String path) {
+    private static SuggestionCollection parseSuggestionCollection(Document doc, SuggestionCollection.Type type) {
         SuggestionCollection collection;
         XPath xpath = XPathFactory.newInstance().newXPath();
         try {
-            XPathExpression expression = xpath.compile(path);
+            XPathExpression expression = xpath.compile(type.path());
             NodeList nodes = (NodeList) expression.evaluate(doc, XPathConstants.NODESET);
-            collection = new SuggestionCollection(path);
+            collection = new SuggestionCollection(type);
             for (int i = 0; i < nodes.getLength(); i++) {
                 Node child = nodes.item(i);
                 String name = child.getNodeName();

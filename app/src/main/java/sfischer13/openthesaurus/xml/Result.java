@@ -21,16 +21,26 @@ public class Result {
         return suggestions;
     }
 
-    // TODO: new field
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+
         String sep = "";
         for (Synset aSynset : synsets) {
             sb.append(sep);
             sb.append(aSynset.toString());
             sep = "\n\n";
         }
+
+        if (0 == sb.length())      {
+            sep = "";
+        }
+        for (SuggestionCollection aSuggestion : suggestions) {
+            sb.append(sep);
+            sb.append(aSuggestion.toString());
+            sep = "\n\n";
+        }
+
         return sb.toString();
     }
 }
