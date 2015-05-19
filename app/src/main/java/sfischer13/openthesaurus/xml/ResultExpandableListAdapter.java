@@ -182,8 +182,16 @@ public class ResultExpandableListAdapter extends BaseExpandableListAdapter {
             ((TextView) view.findViewById(R.id.text)).setText(text);
         } else if (child instanceof TermChild) {
             view = inflater.inflate(R.layout.child, parent, false);
-            String text = ((TermChild) child).getTerm().getTerm();
-            ((TextView) view.findViewById(R.id.text)).setText(text);
+
+            String term = ((TermChild) child).getTerm().getTerm();
+            ((TextView) view.findViewById(R.id.text)).setText(term);
+
+            String level = ((TermChild) child).getTerm().getLevelAbbreviation();
+            if (level != null) {
+                String levelFormatted = String.format("(%s)", level);
+                ((TextView) view.findViewById(R.id.level)).setText(levelFormatted);
+            }
+
         } else {
             view = null;
         }

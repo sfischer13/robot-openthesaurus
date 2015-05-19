@@ -195,7 +195,12 @@ public class Parser {
                     String name = child.getNodeName();
                     if (name.equals("term")) {
                         String termAttribute = child.getAttributes().getNamedItem("term").getNodeValue();
-                        synset.add(new Term(termAttribute));
+                        Node levelNode = child.getAttributes().getNamedItem("level");
+                        if (levelNode == null) {
+                            synset.add(new Term(termAttribute));
+                        } else {
+                            synset.add(new Term(termAttribute, levelNode.getNodeValue()));
+                        }
                     }
                 }
                 result.add(synset);
@@ -230,8 +235,8 @@ public class Parser {
                 Node child = nodes.item(i);
                 String name = child.getNodeName();
                 if (name.equals("term")) {
-                    String attribute = child.getAttributes().getNamedItem("term").getNodeValue();
-                    collection.add(new Term(attribute));
+                    String termAttribute = child.getAttributes().getNamedItem("term").getNodeValue();
+                    collection.add(new Term(termAttribute));
                 }
             }
         } catch (XPathExpressionException xpe) {

@@ -2,8 +2,10 @@
 
 ## Features
 
-- [ ] show categories
+- [X] show levels
+- [ ] history
 - [ ] settings
+- [ ] show categories
 
 ## Interface
 

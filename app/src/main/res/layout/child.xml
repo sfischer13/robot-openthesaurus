@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/child_vertical_margin"
+                android:paddingLeft="@dimen/child_horizontal_margin"
+                android:paddingRight="@dimen/child_horizontal_margin"
+                android:paddingTop="@dimen/child_vertical_margin">
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:maxLines="1"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/child_vertical_margin"
-        android:paddingLeft="@dimen/child_horizontal_margin"
-        android:paddingRight="@dimen/child_horizontal_margin"
-        android:paddingTop="@dimen/child_vertical_margin" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/level"
+        android:width="0dp"
+        android:ellipsize="end"
+        android:maxLines="1"/>
+
 </RelativeLayout>

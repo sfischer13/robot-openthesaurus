@@ -20,17 +20,52 @@ import java.io.Serializable;
 
 public class Term implements Serializable {
     private String term = null;
+    private String level = null;
 
     public Term(String term) {
         this.term = term;
     }
 
+    public Term(String term, String level) {
+        this.term = term;
+        this.level = level;
+    }
+
+
     public String getTerm() {
         return term;
     }
 
+    public String getLevel() {
+        return level;
+    }
+
+    public String getLevelAbbreviation() {
+        if (level == null) {
+            return null;
+        }
+        switch (level) {
+            case "umgangssprachlich":
+                return "ugs.";
+            case "derb":
+                return "derb";
+            case "vulgär":
+                return "vulg.";
+            case "fachsprachlich":
+                return "fachspr.";
+            case "gehoben":
+                return "geh.";
+            default:
+                return level;
+        }
+    }
+
     @Override
     public String toString() {
-        return term;
+        if (level == null) {
+            return term;
+        } else {
+            return String.format("%s (%s)", term, level);
+        }
     }
 }
