@@ -12,6 +12,8 @@
         android:textStyle="bold"
         android:paddingBottom="@dimen/group_vertical_margin"
         android:paddingLeft="@dimen/group_left_padding"
+        android:paddingStart="@dimen/group_left_padding"
         android:paddingRight="@dimen/group_horizontal_margin"
+        android:paddingEnd="@dimen/group_horizontal_margin"
         android:paddingTop="@dimen/group_vertical_margin" />
 </RelativeLayout>
