@@ -2,17 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
     <item
-        android:id="@+id/action_feedback"
         android:title="@string/feedback"
         android:onClick="actionFeedback"
         android:showAsAction="never" />
     <item
-        android:id="@+id/action_help"
         android:title="@string/help"
         android:onClick="actionHelp"
         android:showAsAction="never" />
     <item
-        android:id="@+id/action_info"
         android:title="@string/info"
         android:onClick="actionInfo"
         android:showAsAction="never" />
