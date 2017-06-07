@@ -241,8 +241,6 @@ public class MainActivity extends Activity implements TaskListener {
             UI.shortCenterToast(getApplicationContext(), R.string.error);
         } else if (result.getSynsets().size() == 0 && result.getSuggestions().size() == 0) {
             UI.shortCenterToast(getApplicationContext(), R.string.no_result);
-        } else {
-            // nothing yet
         }
 
         unlockScreenOrientation();
