@@ -3,7 +3,9 @@
 ## Features
 
 - [X] show levels
+- [ ] EN
 - [ ] history
+
 - [ ] settings
 - [ ] show categories
 
