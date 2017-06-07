@@ -27,7 +27,7 @@
             android:layout_weight="1"
             android:hint="@string/hint"
             android:imeOptions="actionSearch"
-            android:inputType="text" />
+            android:inputType="text"/>
 
         <ImageButton
             android:onClick="buttonClear"
@@ -50,5 +50,5 @@
         android:id="@+id/list"
         android:isScrollContainer="false"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 </LinearLayout>
