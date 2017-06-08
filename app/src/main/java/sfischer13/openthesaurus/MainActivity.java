@@ -30,6 +30,7 @@ import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -131,6 +132,19 @@ public class MainActivity extends Activity implements TaskListener {
                 return false;
             }
         });
+        input.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    int rightWidth = input.getCompoundDrawables()[2].getBounds().width();
+                    if(event.getRawX() >= (input.getRight() - rightWidth)) {
+                        input.setText("");
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -155,10 +169,6 @@ public class MainActivity extends Activity implements TaskListener {
 
     private String getInput() {
         return input.getText().toString().trim();
-    }
-
-    public void buttonClear(View view) {
-        input.setText("");
     }
 
     public void buttonSearch(View view) {
