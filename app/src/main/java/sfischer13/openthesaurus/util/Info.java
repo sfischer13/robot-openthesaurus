@@ -20,6 +20,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import java.util.Locale;
+
 public class Info {
     private static PackageInfo packageInfo(Context context) {
         PackageManager pm = context.getPackageManager();
@@ -48,6 +50,6 @@ public class Info {
     }
 
     public static String versionString(Context context) {
-        return String.format("%s (%d)", versionName(context), versionCode(context));
+        return String.format(Locale.US, "%s (%d)", versionName(context), versionCode(context));
     }
 }
