@@ -21,4 +21,6 @@
     <string name="suggestion_substring">Teilworttreffer</string>
     <string name="suggestion_startswith">Gleicher Wortanfang</string>
     <string name="word">Wort</string>
+    <string name="clear">Löschen</string>
+    <string name="history">Verlauf</string>
 </resources>
