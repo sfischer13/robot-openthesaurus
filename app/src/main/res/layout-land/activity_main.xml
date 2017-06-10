@@ -13,12 +13,13 @@
 
         <EditText
             android:id="@+id/input"
-            android:drawableRight="@drawable/ic_action_clear"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:maxLines="1"
             android:layout_weight="1"
+            android:drawableRight="@drawable/ic_action_clear"
             android:hint="@string/hint"
-            android:imeOptions="actionSearch"
+            android:imeOptions="actionSearch|flagNoExtractUi"
             android:inputType="text"/>
 
         <ImageButton
