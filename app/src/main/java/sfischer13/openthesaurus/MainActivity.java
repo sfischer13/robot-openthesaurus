@@ -49,7 +49,6 @@ public class MainActivity extends Activity implements TaskListener {
     private Result result;
     private ExpandableListView list;
 
-    // TODO: deprecated
     @Override
     public Object onRetainNonConfigurationInstance() {
         if (result != null) {
@@ -61,7 +60,6 @@ public class MainActivity extends Activity implements TaskListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: deprecated
         restoreState();
 
         setContentView(R.layout.activity_main);
@@ -256,10 +254,6 @@ public class MainActivity extends Activity implements TaskListener {
         unlockScreenOrientation();
     }
 
-    // TODO: use Fragment (Solution 2)
-    // https://androidresearch.wordpress.com/2013/05/10/dealing-with-asynctask-and-screen-orientation/
-    // http://stackoverflow.com/questions/9630981/asynctask-with-progressdialog-vs-orientation-change
-    // http://stackoverflow.com/a/12303649
     private void lockScreenOrientation() {
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
