@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:id="@+id/query_text"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:maxLines="1"
+    android:paddingBottom="@dimen/child_vertical_margin"
+    android:paddingLeft="@dimen/child_horizontal_margin"
+    android:paddingRight="@dimen/child_horizontal_margin"
+    android:paddingTop="@dimen/child_vertical_margin"/>

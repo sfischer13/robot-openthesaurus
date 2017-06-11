@@ -5,16 +5,16 @@
     <color name="ot_gray">#D8D8D8</color>
     <color name="ot_white">#FFFFFF</color>
 
-    <style name="AppTheme" parent="android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/AppActionBar</item>
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionBarStyle">@style/ActionBarTheme</item>
     </style>
 
-    <style name="AppActionBar" parent="android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/ot_blue</item>
-        <item name="android:titleTextStyle">@style/AppTitleTextStyle</item>
+    <style name="ActionBarTheme" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/ot_blue</item>
+        <item name="titleTextStyle">@style/TitleTextStyle</item>
     </style>
 
-    <style name="AppTitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <style name="TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/ot_white</item>
         <item name="android:textStyle">bold</item>
     </style>

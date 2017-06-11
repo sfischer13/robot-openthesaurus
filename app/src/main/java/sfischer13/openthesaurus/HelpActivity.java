@@ -16,15 +16,15 @@
 
 package sfischer13.openthesaurus;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
 
 import sfischer13.openthesaurus.util.IO;
 
 
-public class HelpActivity extends Activity {
+public class HelpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -16,8 +16,8 @@
 
 package sfischer13.openthesaurus;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -25,7 +25,7 @@ import sfischer13.openthesaurus.util.IO;
 import sfischer13.openthesaurus.util.Info;
 
 
-public class InfoActivity extends Activity {
+public class InfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
