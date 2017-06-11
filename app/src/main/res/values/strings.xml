@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_contact">sfischer13@ymail.com</string>
+    <string name="app_name">German Thesaurus</string>
+    <string name="context_copy">Copy</string>
+    <string name="context_web">www.openthesaurus.de</string>
+    <string name="error">Connection error!</string>
+    <string name="feedback">Feedback</string>
+    <string name="feedback_app">Feedback on \"German Thesaurus\"</string>
+    <string name="footer"><b>OpenThesaurus</b> is a free German synonym dictionary, in which everybody can participate.</string>
+    <string name="help">Help</string>
+    <string name="hint">Search term</string>
+    <string name="info">About</string>
+    <string name="input_too_short">Input too short!</string>
+    <string name="matches">Search matches</string>
+    <string name="no_network">No connection!</string>
+    <string name="no_result">No matches!</string>
+    <string name="search">Search</string>
+    <string name="searching">Searching …</string>
+    <string name="suggestions">Search suggestions</string>
+    <string name="suggestion_similar">Similar words</string>
+    <string name="suggestion_substring">Partial matches</string>
+    <string name="suggestion_startswith">Prefix matches</string>
+    <string name="word">Word</string>
+    <string name="clear">Clear</string>
+    <string name="history">History</string>
+</resources>
