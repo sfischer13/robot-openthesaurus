@@ -26,6 +26,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -77,6 +78,15 @@ public class MainActivity extends AppCompatActivity implements TaskListener {
             return result;
         }
         return super.onRetainCustomNonConfigurationInstance();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (layout.isDrawerOpen(GravityCompat.START)) {
+            layout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
