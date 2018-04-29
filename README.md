@@ -4,8 +4,6 @@ App for looking up synonyms of German words in [OpenThesaurus].
 
 ## Download
 
-<a href='https://play.google.com/store/apps/details?id=sfischer13.openthesaurus'><img alt='Get it on Google Play' src='https://play.google.com/intl/de_de/badges/images/generic/en_badge_web_generic.png' width='210' height='80'/></a>
-
 ## Build
 
 ```./gradlew assembleRelease```
